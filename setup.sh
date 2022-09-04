@@ -3,7 +3,8 @@ git config --global commit.gpgsign true
 [[ ! -z $GITCONFIG_SILVERHAND  ]] && \
 git config --global user.signingkey C72642FE24F7D42B || \
 git config --global user.signingkey 1EA50084233D66BE
-chmod 644 ~/.gitconfig
+[[ ! -z $GIT_AUTHOR_NAME  ]] && git config --global user.name $GIT_AUTHOR_NAME
+[[ ! -z $GIT_AUTHOR_EMAIL  ]] && git config --global user.email $GIT_AUTHOR_EMAIL
 
 mkdir -p ~/.ssh
 [[ ! -z $SSH_PUBLIC_KEY  ]] && \
