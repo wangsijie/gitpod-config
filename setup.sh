@@ -1,7 +1,8 @@
 #!/bin/bash
+git config --global commit.gpgsign true
 [[ ! -z $GITCONFIG_SILVERHAND  ]] && \
-echo $GITCONFIG_SILVERHAND | base64 -d > ~/.gitconfig || \
-echo $GITCONFIG | base64 -d > ~/.gitconfig && \
+git config user.signingkey C72642FE24F7D42B || \
+git config user.signingkey 1EA50084233D66BE
 chmod 644 ~/.gitconfig
 
 mkdir -p ~/.ssh
