@@ -6,13 +6,12 @@ git config --global user.signingkey 1EA50084233D66BE
 [[ ! -z $GIT_AUTHOR_NAME  ]] && git config --global user.name $GIT_AUTHOR_NAME
 [[ ! -z $GIT_AUTHOR_EMAIL  ]] && git config --global user.email $GIT_AUTHOR_EMAIL
 
-~/.ssh/known_hosts
+mkdir -p ~/.ssh
 ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 git config --global url."git@github.com:".insteadOf "https://github.com/"
 
-mkdir -p ~/.ssh
 [[ ! -z $SSH_PUBLIC_KEY  ]] && \
-echo $SSH_PUBLIC_KEY > ~/.ssh/id_rsa.pub && \
+echo $SSH_PUBLIC_KEY | base64 -d > ~/.ssh/id_rsa.pub && \
 chmod 644 ~/.ssh/id_rsa.pub
 [[ ! -z $SSH_PRIVATE_KEY  ]] && \
 echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa && \
