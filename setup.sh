@@ -6,6 +6,7 @@ git config --global user.signingkey 1EA50084233D66BE
 [[ ! -z $GIT_AUTHOR_NAME  ]] && git config --global user.name $GIT_AUTHOR_NAME
 [[ ! -z $GIT_AUTHOR_EMAIL  ]] && git config --global user.email $GIT_AUTHOR_EMAIL
 
+~/.ssh/known_hosts
 ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 git config --global url."git@github.com:".insteadOf "https://github.com/"
 
